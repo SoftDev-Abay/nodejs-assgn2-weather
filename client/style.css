@@ -1,0 +1,12 @@
+.area {
+  fill: #fff7ca; /* Yellow color for the space under the graph */
+}
+.line {
+  fill: none;
+  stroke: #ffd270; /* Different color for the connecting line */
+  stroke-width: 2;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

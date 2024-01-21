@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body class="flex justify-center">
+    <div class="mt-8 min-w-[600px] max-w-[700px]">
+      <div
+        class="w-full flex gap-4 border-opacity-50 px-5 py-2 rounded-lg shadow-sm border border-gray-300 hover:shadow-md transition-all"
+      >
+        <input
+          type="text"
+          id="city-input"
+          placeholder="city"
+          class="outline-none flex-1"
+        />
+        <button type="button" id="search-button">
+          <i class="fa fa-search text-gray-400"></i>
+        </button>
+      </div>
+
+      <div class="content mt-10">
+        <header class="flex justify-between">
+          <div class="flex gap-4 items-center">
+            <i class="fa fa-circle text-yellow-400" style="font-size: 50px"></i>
+            <div class="flex gap-2">
+              <div class="text-5xl">-16</div>
+              <div class="h-full">
+                <div class="mb-auto text-sm">
+                  <span class="cursor-pointer">°C</span>
+                  <span class="">/</span>
+                  <span class="cursor-pointer">°F</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-400 text-xs flex flex-col">
+              <span>Precipitation: 0%</span>
+              <span>Humidity: 70%</span>
+              <span>Wind: 6 km/h</span>
+            </div>
+          </div>
+          <div class="flex flex-col text-right">
+            <span class="text-lg font-[500]">Weather</span>
+            <div class="flex flex-col text-sm">
+              <span class="text-gray-600">Sunday 14:00</span>
+              <span class="text-gray-600">Sunny</span>
+            </div>
+          </div>
+        </header>
+        <!-- graphs container -->
+        <div class="mt-4">
+          <header class="flex gap-3 text-sm">
+            <div class="cursor-pointer pr-2 border-r-[1px] border-gray-300">
+              Temperature
+            </div>
+            <div class="cursor-pointer pr-2 border-r-[1px] border-gray-300">
+              Precipitation
+            </div>
+            <div class="cursor-pointer pr-2">Wind</div>
+          </header>
+          <!-- svg graph -->
+          <div class="mt-2">
+            <svg class=""></svg>
+          </div>
+        </div>
+        <!-- days items -->
+        <div class="mt-4 gap-1 flex">
+          <div
+            class="bg-gray-100 flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/sun.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+          <div
+            class="flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/cloud.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+          <div
+            class="flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/sun.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+          <div
+            class="flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/sun.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+          <div
+            class="flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/sun.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+          <div
+            class="flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/sun.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+          <div
+            class="flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
+          >
+            <span>Sat</span>
+            <img
+              src="./img/sun.png"
+              class="mt-1"
+              style="width: 40px; height: 40px"
+            />
+
+            <div class="text-xs mt-[2px]">
+              <span>-19°</span>
+              <span class="text-gray-500">-27°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
