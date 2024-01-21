@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon server/index.js",
-    "dev": "npx tailwindcss -i ./client/style.css -o ./client/talwind.css --watch"
+    "dev": "npx tailwindcss -i ./client/style.css -o ./client/tailwind.css --watch"
   },
   "author": "",
   "license": "ISC",

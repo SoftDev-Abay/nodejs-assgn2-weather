@@ -26,12 +26,30 @@
         </button>
       </div>
 
-      <div class="content mt-10">
+      <div
+        id="err-content-container"
+        class="h-[400px] w-full flex justify-center items-center"
+      >
+        <div class="text-gray-600 text-lg" id="err-content-text">
+          To display the weather, please enter name of a city in the input
+        </div>
+      </div>
+      <div class="content mt-10 hidden" id="main-content">
         <header class="flex justify-between">
           <div class="flex gap-4 items-center">
-            <i class="fa fa-circle text-yellow-400" style="font-size: 50px"></i>
+            <img
+              src="https://murphyslaw.github.io/hosted-assets/weather/sun.png"
+              alt=""
+              id="main-weather-img"
+              style="
+                width: 70px;
+                height: 70px;
+                object-fit: contain;
+                transform: scale(1.4);
+              "
+            />
             <div class="flex gap-2">
-              <div class="text-5xl">-16</div>
+              <div class="text-5xl" id="main-temperature">-16</div>
               <div class="h-full">
                 <div class="mb-auto text-sm">
                   <span class="cursor-pointer">°C</span>
@@ -41,16 +59,21 @@
               </div>
             </div>
             <div class="text-gray-400 text-xs flex flex-col">
-              <span>Precipitation: 0%</span>
-              <span>Humidity: 70%</span>
-              <span>Wind: 6 km/h</span>
+              <span>Feels like: <span id="main-feels-like">15°</span></span>
+              <span>Humidity: <span id="main-humidity">0%</span>%</span>
+              <span>Wind: <span id="main-wind">6</span> km/h</span>
             </div>
           </div>
           <div class="flex flex-col text-right">
             <span class="text-lg font-[500]">Weather</span>
             <div class="flex flex-col text-sm">
-              <span class="text-gray-600">Sunday 14:00</span>
-              <span class="text-gray-600">Sunny</span>
+              <span class="text-gray-600" id=""
+                ><span id="main-weekday">Sunday </span>
+                <span id="main-current-time">14:00</span></span
+              >
+              <span class="text-gray-600" id="main-weather-description"
+                >Sunny</span
+              >
             </div>
           </div>
         </header>
@@ -66,12 +89,12 @@
             <div class="cursor-pointer pr-2">Wind</div>
           </header>
           <!-- svg graph -->
-          <div class="mt-2">
+          <div class="mt-2" id="graph-container">
             <svg class=""></svg>
           </div>
         </div>
         <!-- days items -->
-        <div class="mt-4 gap-1 flex">
+        <div class="mt-4 gap-1 flex" id="days-container">
           <div
             class="bg-gray-100 flex-grow flex flex-col rounded-lg px-2 py-1 items-center cursor-pointer hover:bg-gray-100"
           >
