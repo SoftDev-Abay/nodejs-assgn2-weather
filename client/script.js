@@ -1,3 +1,54 @@
+const map = L.map('map'); 
+// Initializes map
+let marker, circle, zoomed;
+
+
+
+function mapSuccess(pos) {
+
+  const lat = pos.lat;
+  const lng = pos.lon;
+  const accuracy = 13;
+
+  if (marker) {
+      map.removeLayer(marker);
+      map.removeLayer(circle);
+  }
+  // Removes any existing marker and circule (new ones about to be set)
+
+  marker = L.marker([lat, lng]).addTo(map);
+  circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+  // Adds marker to the map and a circle for accuracy
+
+  if (!zoomed) {
+      zoomed = map.fitBounds(circle.getBounds()); 
+  }
+  // Set zoom to boundaries of accuracy circle
+
+  map.setView([lat, lng]);
+  // Set map focus to current user position
+
+}
+
+
+
+  map.setView([50, -50], 13); 
+// Sets initial coordinates and zoom level
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map); 
+// Sets map data source and associates with map
+
+
+
+
+
+
+
+
+
 const convertKelvinToCelsius = (kelvin) => {
   return kelvin - 273.15;
 };
@@ -116,7 +167,8 @@ const renderDayData = (data) => {
   const currentDayData = data.find((item) => {
     const hour = new Date(item.dt_txt).getHours();
     return hour >= currentHour;
-  });
+  }) || data[data.length-1];
+  
   console.log(currentDayData);
 
   const { weather, main, wind, dt_txt } = currentDayData;
@@ -165,10 +217,18 @@ submitButton.addEventListener("click", async () => {
     const sortedDays = sortByDays(list);
 
     const firstDay = sortedDays[Object.keys(sortedDays)[0]];
+    
+    const cityLat = data.city.coord.lat
+    const cityLon = data.city.coord.lon
 
     renderDayData(firstDay);
     renderDays(sortedDays);
     renderGraph(firstDay);
+    mapSuccess({
+      lat: cityLat, lon:cityLon
+    })
+    // inittializeMap(cityLat, cityLon)
+
   } catch (error) {
     console.log(error);
     const contentDiv = document.getElementById("main-content");
@@ -253,3 +313,6 @@ const renderDays = (days) => {
     daysContainer.appendChild(dayContainer);
   });
 };
+
+
+
