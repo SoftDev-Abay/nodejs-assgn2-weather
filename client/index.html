@@ -9,8 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    
   </head>
   <body class="flex justify-center">
+    
     <div class="mt-8 min-w-[600px] max-w-[700px]">
       <div
         class="w-full flex gap-4 border-opacity-50 px-5 py-2 rounded-lg shadow-sm border border-gray-300 hover:shadow-md transition-all"
@@ -201,7 +203,16 @@
           </div>
         </div>
       </div>
+      <div id="map"  style="height: 300px;width: 100%; border-radius: 10px; margin-top: 35px;"></div>
     </div>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+crossorigin=""></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="script.js"></script>
   </body>
