@@ -4,10 +4,8 @@ let marker, circle, zoomed;
 
 
 
-function mapSuccess(pos) {
+function mapSuccess(lat,lng) {
 
-  const lat = pos.lat;
-  const lng = pos.lon;
   const accuracy = 13;
 
   if (marker) {
@@ -32,12 +30,11 @@ function mapSuccess(pos) {
 
 
 
-  map.setView([50, -50], 13); 
+map.setView([51.505, -0.09], 13); 
 // Sets initial coordinates and zoom level
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '© OpenStreetMap'
   }).addTo(map); 
 // Sets map data source and associates with map
 
@@ -224,9 +221,7 @@ submitButton.addEventListener("click", async () => {
     renderDayData(firstDay);
     renderDays(sortedDays);
     renderGraph(firstDay);
-    mapSuccess({
-      lat: cityLat, lon:cityLon
-    })
+    mapSuccess(cityLat, cityLon)
     // inittializeMap(cityLat, cityLon)
 
   } catch (error) {
