@@ -36,12 +36,7 @@ This repository contains an Express web application that incorporates various fe
 - HTML/CSS/JavaScript (or any frontend framework used)
 - (Add any other relevant technologies)
 
-## Contributors
-- [Your Name](https://github.com/yourusername)
-- (Add other contributors if any)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
-## Acknowledgements
-- Mention any acknowledgements or references here.
