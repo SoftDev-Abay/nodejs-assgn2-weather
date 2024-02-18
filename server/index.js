@@ -1,27 +1,52 @@
 import express from "express";
-import staticLondonWeatherData from "./assets/data.json" assert { type: "json" };
-import fetch from "node-fetch";
+import expressEjsLayouts from "express-ejs-layouts";
+import path from "path";
+import cookieParser from "cookie-parser";
+import { collection } from "./config.js";
+import dotenv from "dotenv";
+import setLoginRoute from "./routes/login.js";
+import setSignupRoute from "./routes/signup.js";
+import setApodRoute from "./routes/apod.js";
+import setWeatherRoute from "./routes/weather.js";
+import setArticleRoutes from "./routes/articles.js";
+import setAdminPanelRoutes from "./routes/adminPanel.js";
+import setHistoryRoutes from "./routes/history.js";
+dotenv.config(); // load environment variables from .env file
 
 const app = express();
 
+app.use(expressEjsLayouts);
+app.set("view engine", "ejs");
+
 app.use(express.json());
-app.use(express.static("client"));
+app.use(express.urlencoded({ extended: false }));
 
-// static weather data only gives data for one city, for testing purposes
+app.use(cookieParser());
+app.use("/weather", express.static("client"));
+app.use(express.static("public"));
 
-app.get("/city/:city", async (req, res) => {
+app.get("/login", (req, res) => {
+  res.render("login", { layout: false });
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup", { layout: false });
+});
+
+setLoginRoute(app, collection);
+setSignupRoute(app, collection);
+setAdminPanelRoutes(app, collection);
+setApodRoute(app);
+setWeatherRoute(app);
+setArticleRoutes(app);
+setHistoryRoutes(app);
+
+app.get("/logout", (req, res) => {
   try {
-    const city = req.params.city;
-    console.log(city);
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6656578e0521cbcce7f6a487ac954522`;
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-
-    res.json(data);
+    res.clearCookie("token");
+    res.status(200).send("Logged out successfully");
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Something went wrong" });
+    res.status(500).send("Internal server error");
   }
 });
 

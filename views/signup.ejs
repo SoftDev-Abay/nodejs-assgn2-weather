@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="loginform">
+      <h2>Signup</h2>
+      <form action="/signup" method="post" autocomplete="off">
+        <p>Username</p>
+        <input
+          type="text"
+          name="username"
+          d="username"
+          placeholder="Username"
+        />
+        <p>Password</p>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+        />
+        <p>Confirm Password</p>
+
+        <input
+          type="password"
+          name="confirm_password"
+          id="confirm_password"
+          placeholder="Password"
+        />
+        <input type="submit" name="login-btn" value="Sing up" />
+        <a href="/login">Already have an account? Login</a>
+      </form>
+    </div>
+  </body>
+</html>

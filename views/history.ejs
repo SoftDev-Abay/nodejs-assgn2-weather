@@ -1,0 +1,18 @@
+<h2 class="mb-5">API Call History</h2>
+<div class="d-flex flex-column gap-3">
+  <% var currentDate = null; history.forEach(function(entry) { var timestamp =
+  new Date(entry.timestamp); var date = timestamp.toLocaleDateString('en-US', {
+  month: 'long', day: 'numeric', year: 'numeric' }); var time =
+  timestamp.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric',
+  hour12: true }); if (date != currentDate) { currentDate = date; %>
+  <div class="text-muted"><%= date %></div>
+  <% } %>
+  <div
+    class="p-3 d-flex justify-content-between rounded"
+    style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+  >
+    <span style="font-weight: 600"><%= entry.endpoint %></span>
+    <span style="opacity: 0.7"><%= time %></span>
+  </div>
+  <% }); %>
+</div>
